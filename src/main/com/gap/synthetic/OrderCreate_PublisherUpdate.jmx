@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="OrderCreate Synthetic Order Test  Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Test_Users" elementType="Argument">
+            <stringProp name="Argument.name">Test_Users</stringProp>
+            <stringProp name="Argument.value">${__P(Test_Users,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Test_RampUp" elementType="Argument">
+            <stringProp name="Argument.name">Test_RampUp</stringProp>
+            <stringProp name="Argument.value">${__P(Test_RampUp,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Test_LoopCount" elementType="Argument">
+            <stringProp name="Argument.name">Test_LoopCount</stringProp>
+            <stringProp name="Argument.value">${__P(Test_LoopCount,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="today" elementType="Argument">
+            <stringProp name="Argument.name">today</stringProp>
+            <stringProp name="Argument.value">${__time(YMD)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="enty_key_pattern" elementType="Argument">
+            <stringProp name="Argument.name">enty_key_pattern</stringProp>
+            <stringProp name="Argument.value">JMC2%</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="enty_id_pattern" elementType="Argument">
+            <stringProp name="Argument.name">enty_id_pattern</stringProp>
+            <stringProp name="Argument.value">JMC2%</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Test_Sku_Count" elementType="Argument">
+            <stringProp name="Argument.name">Test_Sku_Count</stringProp>
+            <stringProp name="Argument.value">${__P(TSKUCount,2)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Brand_Code" elementType="Argument">
+            <stringProp name="Argument.name">Brand_Code</stringProp>
+            <stringProp name="Argument.value">${__P(BCode,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="single_line_percentage" elementType="Argument">
+            <stringProp name="Argument.name">single_line_percentage</stringProp>
+            <stringProp name="Argument.value">${__P(SRPercent,10)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="double_line_percentage" elementType="Argument">
+            <stringProp name="Argument.name">double_line_percentage</stringProp>
+            <stringProp name="Argument.value">${__P(SRPercent,10)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="triple_line_percentage" elementType="Argument">
+            <stringProp name="Argument.name">triple_line_percentage</stringProp>
+            <stringProp name="Argument.value">${__P(SRPercent,30)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="quadraple_line_percentage" elementType="Argument">
+            <stringProp name="Argument.name">quadraple_line_percentage</stringProp>
+            <stringProp name="Argument.value">${__P(SRPercent,30)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="multi_line_percentage" elementType="Argument">
+            <stringProp name="Argument.name">multi_line_percentage</stringProp>
+            <stringProp name="Argument.value">${__P(SRPercent,20)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MQ_MANAGER" elementType="Argument">
+            <stringProp name="Argument.name">MQ_MANAGER</stringProp>
+            <stringProp name="Argument.value">${__P(MQ_MANAGER,LOCALQM)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MQ_HOSTNAME" elementType="Argument">
+            <stringProp name="Argument.name">MQ_HOSTNAME</stringProp>
+            <stringProp name="Argument.value">${__P(MQ_HOSTNAME,localhost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MQ_CHANNEL" elementType="Argument">
+            <stringProp name="Argument.name">MQ_CHANNEL</stringProp>
+            <stringProp name="Argument.value">${__P(MQ_CHANNEL,DEMO.ADMIN.SVRCONN)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MQ_USER_ID" elementType="Argument">
+            <stringProp name="Argument.name">MQ_USER_ID</stringProp>
+            <stringProp name="Argument.value">${__P(MQ_USER_ID,mqm)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MQ_PORT" elementType="Argument">
+            <stringProp name="Argument.name">MQ_PORT</stringProp>
+            <stringProp name="Argument.value">${__P(MQ_PORT,1414)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MQ_QUEUE_NAME" elementType="Argument">
+            <stringProp name="Argument.name">MQ_QUEUE_NAME</stringProp>
+            <stringProp name="Argument.value">${__P(MQ_QUEUE_NAME,QC.MONARCH.CREATE_ORDER)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Test_Sku_Count" elementType="Argument">
+            <stringProp name="Argument.name">Test_Sku_Count</stringProp>
+            <stringProp name="Argument.value">${__P(TSKUCount,5)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MQ_USER_PASSWORD" elementType="Argument">
+            <stringProp name="Argument.name">MQ_USER_PASSWORD</stringProp>
+            <stringProp name="Argument.value">&quot;&quot;</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ordersCount" elementType="Argument">
+            <stringProp name="Argument.name">ordersCount</stringProp>
+            <stringProp name="Argument.value">${__P(ordersCount,5)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <stringProp name="TestPlan.comments">Get Order Data from CSV</stringProp>
+        <stringProp name="filename">/home/vagrant/IdeaProjects/com-oms-perf-event-generator/src/main/com/gap/synthetic/OrderConfigDataUpdate.csv</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="variableNames"></stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Order Create MessageThread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${Test_LoopCount}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${Test_Users}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${Test_RampUp}</stringProp>
+        <longProp name="ThreadGroup.start_time">1333653438000</longProp>
+        <longProp name="ThreadGroup.end_time">1333653438000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+          <stringProp name="variableName">Rndm</stringProp>
+          <stringProp name="outputFormat">0000000</stringProp>
+          <stringProp name="minimumValue">1</stringProp>
+          <stringProp name="maximumValue">9999999</stringProp>
+          <stringProp name="randomSeed"></stringProp>
+          <boolProp name="perThread">true</boolProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random_Email" enabled="true">
+          <stringProp name="maximumValue">1000000</stringProp>
+          <stringProp name="minimumValue">1</stringProp>
+          <stringProp name="outputFormat">Tester_000000</stringProp>
+          <boolProp name="perThread">false</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">Email</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Order Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="ship_node" elementType="Argument">
+              <stringProp name="Argument.name">ship_node</stringProp>
+              <stringProp name="Argument.value">8111</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="release_qty" elementType="Argument">
+              <stringProp name="Argument.name">release_qty</stringProp>
+              <stringProp name="Argument.value">2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="order_qty" elementType="Argument">
+              <stringProp name="Argument.name">order_qty</stringProp>
+              <stringProp name="Argument.value">2</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="item_id" elementType="Argument">
+              <stringProp name="Argument.name">item_id</stringProp>
+              <stringProp name="Argument.value">1587640020007</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="brand" elementType="Argument">
+              <stringProp name="Argument.name">brand</stringProp>
+              <stringProp name="Argument.value">GOL</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="ordersCount" elementType="Argument">
+              <stringProp name="Argument.name">ordersCount</stringProp>
+              <stringProp name="Argument.value">11</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="script">String totalOrderCount = vars.get(&quot;ordersCount&quot;);
+log.info(&quot;totalOrderCount is &quot;+totalOrderCount);
+int ordersFromCSVCount = Integer.parseInt(totalOrderCount);
+for(int i=0;i&lt;ordersFromCSVCount;i++){
+	log.info(&quot;order number ======== &quot;+i);
+}</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="order_number_counter" enabled="true">
+          <stringProp name="CounterConfig.start">01</stringProp>
+          <stringProp name="CounterConfig.end">${total_order_count}</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">order_no</stringProp>
+          <stringProp name="CounterConfig.format">AJ17C001</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer`" enabled="true">
+          <intProp name="calcMode">2</intProp>
+          <stringProp name="throughput">${__P(Throughput,100)}</stringProp>
+          <stringProp name="TestPlan.comments">2x   nkmjn  n b</stringProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>false</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <url>true</url>
+              <sampleCount>true</sampleCount>
+            </value>
+          </objProp>
+          <stringProp name="filename">/home/vagrant/IdeaProjects/com-oms-perf-event-generator/result/output.csv</stringProp>
+          <boolProp name="ResultCollector.success_only_logging">true</boolProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>false</time>
+              <latency>false</latency>
+              <timestamp>false</timestamp>
+              <success>true</success>
+              <label>false</label>
+              <code>false</code>
+              <message>false</message>
+              <threadName>false</threadName>
+              <dataType>false</dataType>
+              <encoding>false</encoding>
+              <assertions>false</assertions>
+              <subresults>false</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+            </value>
+          </objProp>
+          <stringProp name="filename">/home/vagrant/IdeaProjects/com-oms-perf-event-generator/result/output.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <Summariser guiclass="SummariserGui" testclass="Summariser" testname="Generate Summary Results" enabled="true">
+          <stringProp name="TestPlan.comments">summary</stringProp>
+        </Summariser>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request" enabled="true">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="mq_manager" elementType="Argument">
+                <stringProp name="Argument.name">mq_manager</stringProp>
+                <stringProp name="Argument.value">${MQ_MANAGER}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_queue_name" elementType="Argument">
+                <stringProp name="Argument.name">mq_queue_name</stringProp>
+                <stringProp name="Argument.value">${MQ_QUEUE_NAME}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_hostname" elementType="Argument">
+                <stringProp name="Argument.name">mq_hostname</stringProp>
+                <stringProp name="Argument.value">${MQ_HOSTNAME}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_port" elementType="Argument">
+                <stringProp name="Argument.name">mq_port</stringProp>
+                <stringProp name="Argument.value">${MQ_PORT}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_channel" elementType="Argument">
+                <stringProp name="Argument.name">mq_channel</stringProp>
+                <stringProp name="Argument.value">${MQ_CHANNEL}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_user_id" elementType="Argument">
+                <stringProp name="Argument.name">mq_user_id</stringProp>
+                <stringProp name="Argument.value">${MQ_USER_ID}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_user_password" elementType="Argument">
+                <stringProp name="Argument.name">mq_user_password</stringProp>
+                <stringProp name="Argument.value">${MQ_USER_PASSWORD}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_use_mqcsp_authentication" elementType="Argument">
+                <stringProp name="Argument.name">mq_use_mqcsp_authentication</stringProp>
+                <stringProp name="Argument.value">false</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_encoding_message" elementType="Argument">
+                <stringProp name="Argument.name">mq_encoding_message</stringProp>
+                <stringProp name="Argument.value">UTF-8</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_message" elementType="Argument">
+                <stringProp name="Argument.name">mq_message</stringProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt; &lt;ns2:OrderCreateRequest xmlns:ns2=&quot;http://schemas.gid.gap.com/order/v2&quot;&gt; 	&lt;MessageHeader&gt; 		&lt;Version&gt; 			&lt;MajorVersion&gt;1&lt;/MajorVersion&gt; 			&lt;MinorVersion&gt;0&lt;/MinorVersion&gt; 		&lt;/Version&gt; 		&lt;ClientDetails&gt; 			&lt;ClientName&gt;ToOMS-Consumer&lt;/ClientName&gt; 			&lt;ClientId&gt;ECOM&lt;/ClientId&gt; 			&lt;RequestedTimeStamp&gt;${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss)}.841Z&lt;/RequestedTimeStamp&gt; 		&lt;/ClientDetails&gt; 	&lt;/MessageHeader&gt; 	&lt;Order&gt; 		&lt;OrderHeader&gt; 			&lt;OrderNo&gt;${order_no}&lt;/OrderNo&gt; 			&lt;OrderDate&gt;${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss)}-0500&lt;/OrderDate&gt; 			&lt;BrandCode&gt;${brandcode}&lt;/BrandCode&gt; 			&lt;ChannelCode&gt;2&lt;/ChannelCode&gt; 			&lt;Currency&gt;USD&lt;/Currency&gt; 			&lt;CrossBrandOrderIndicator&gt;false&lt;/CrossBrandOrderIndicator&gt; 			&lt;OrderType&gt;SALES&lt;/OrderType&gt; 			&lt;CountryCode&gt;US&lt;/CountryCode&gt; 			&lt;LocaleCode&gt;en_US&lt;/LocaleCode&gt; 			&lt;MarketCode&gt;US&lt;/MarketCode&gt; 			&lt;OperationalBoxStuffers&gt;G&lt;/OperationalBoxStuffers&gt; 			&lt;MarketingBoxStuffers&gt;4&lt;/MarketingBoxStuffers&gt; 			&lt;ThirdPartyOrderIndicator&gt;false&lt;/ThirdPartyOrderIndicator&gt; 			&lt;EnteredBy&gt;rpamu&lt;/EnteredBy&gt; 			&lt;OrderPurpose&gt;REGULAR&lt;/OrderPurpose&gt; 			&lt;IsOrderLinked&gt;false&lt;/IsOrderLinked&gt; 			&lt;FraudValidationStatus&gt;ACCEPT&lt;/FraudValidationStatus&gt; 			&lt;TaxAppliedIndicator&gt;true&lt;/TaxAppliedIndicator&gt; 			&lt;IsVatInclusive&gt;false&lt;/IsVatInclusive&gt; 			&lt;ReserveInventoryFlag&gt;true&lt;/ReserveInventoryFlag&gt; 			&lt;LineOfBusiness&gt;SPECIALTY&lt;/LineOfBusiness&gt; 			&lt;OriginatingClientApplication&gt;ECOM&lt;/OriginatingClientApplication&gt; 			&lt;OriginatingDeviceInteraction&gt;SELFSERVE&lt;/OriginatingDeviceInteraction&gt; 			&lt;IsSynthetic&gt;true&lt;/IsSynthetic&gt; 		&lt;/OrderHeader&gt; 		&lt;Customer&gt; 			&lt;CustomerId&gt;5000057899&lt;/CustomerId&gt; 			&lt;CustomerAccountId&gt;6196773289&lt;/CustomerAccountId&gt; 			&lt;ExternalCustomerId&gt;9111ea745f734948b03a1dbfc7326b0a&lt;/ExternalCustomerId&gt; 		&lt;/Customer&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;40% off regular-priced items&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;QUALIFIED&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;715593&lt;/AwardId&gt; 				&lt;AwardType&gt;1&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;Buy 2 or more briefs for $20 each&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;721229&lt;/AwardId&gt; 				&lt;AwardType&gt;3&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;Buy 2 or more Socks for $12 each&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;721270&lt;/AwardId&gt; 				&lt;AwardType&gt;3&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;40% off your Old Navy purchase, even Clearance! (Restrictions apply)&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;QUALIFIED&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;710870&lt;/AwardId&gt; 				&lt;AwardType&gt;1&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;Extra 60% off sale styles&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;QUALIFIED&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;715573&lt;/AwardId&gt; 				&lt;AwardType&gt;1&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;719636&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;719811&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;719816&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;719909&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720012&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720036&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720056&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720062&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720193&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720172&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720337&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720389&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720456&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720465&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720483&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720447&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;LOAD TEST $1 Off SKU based&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;false&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;ELIGIBLE&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;720499&lt;/AwardId&gt; 				&lt;AwardType&gt;2&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Promotion&gt; 			&lt;PromotionDescription&gt;Marketing box stuffer&lt;/PromotionDescription&gt; 			&lt;PromotionApplied&gt;true&lt;/PromotionApplied&gt; 			&lt;PromotionReasonCode&gt;QUALIFIED&lt;/PromotionReasonCode&gt; 			&lt;Awards&gt; 				&lt;AwardId&gt;682669&lt;/AwardId&gt; 				&lt;AwardType&gt;7&lt;/AwardType&gt; 				&lt;AwardAmount&gt;0.00&lt;/AwardAmount&gt; 				&lt;AwardAppliedIndicator&gt;false&lt;/AwardAppliedIndicator&gt; 			&lt;/Awards&gt; 		&lt;/Promotion&gt; 		&lt;Gifting&gt; 			&lt;GiftIndicator&gt;false&lt;/GiftIndicator&gt; 			&lt;CompBoxQty&gt;0&lt;/CompBoxQty&gt; 		&lt;/Gifting&gt; 		&lt;Line&gt; 			&lt;LineNumber&gt;1&lt;/LineNumber&gt; 			&lt;AutoAddInd&gt;false&lt;/AutoAddInd&gt; 			&lt;ReservationID&gt;7291527&lt;/ReservationID&gt; 			&lt;OrderedQty&gt;1&lt;/OrderedQty&gt; 			&lt;PromotionReasonCode/&gt; 			&lt;IntentionalBackorder&gt;false&lt;/IntentionalBackorder&gt; 			&lt;IsParent&gt;false&lt;/IsParent&gt; 			&lt;Product&gt; 				&lt;BrandCode&gt;${brandcode}&lt;/BrandCode&gt; 				&lt;ItemDivNumber&gt;1165460&lt;/ItemDivNumber&gt; 				&lt;ItemType&gt;7&lt;/ItemType&gt; 				&lt;ItemSizeCode&gt;${__javaScript(&apos;${sku}&apos;.substring(9\,13))}&lt;/ItemSizeCode&gt;                 &lt;ItemStyleNumber&gt;${__javaScript(&apos;${sku}&apos;.substring(0\,6))}&lt;/ItemStyleNumber&gt;                 &lt;ItemSkuNumber&gt;${sku}&lt;/ItemSkuNumber&gt;                 &lt;TaxCode&gt;${tax}&lt;/TaxCode&gt; 				&lt;ItemGiftWrapInd&gt;true&lt;/ItemGiftWrapInd&gt; 				&lt;ItemIsHazmat&gt;false&lt;/ItemIsHazmat&gt; 				&lt;ItemIsOrderableInd&gt;false&lt;/ItemIsOrderableInd&gt; 				&lt;ShipChrgApplInd&gt;true&lt;/ShipChrgApplInd&gt; 				&lt;UPCCode&gt;500053185780&lt;/UPCCode&gt; 				&lt;VendorUpcCode&gt;0&lt;/VendorUpcCode&gt; 				&lt;MarketCode&gt;US&lt;/MarketCode&gt; 				&lt;CountryCode&gt;US&lt;/CountryCode&gt; 				&lt;ItemColorDescription&gt; 					&lt;Data&gt; 						&lt;LocaleCode&gt;en_US&lt;/LocaleCode&gt; 						&lt;Value&gt;dark indigo&lt;/Value&gt; 					&lt;/Data&gt; 				&lt;/ItemColorDescription&gt; 				&lt;ItemDescription&gt; 					&lt;Data&gt; 						&lt;LocaleCode&gt;en_US&lt;/LocaleCode&gt; 						&lt;Value&gt;High Rise Flare Jeans&lt;/Value&gt; 					&lt;/Data&gt; 				&lt;/ItemDescription&gt; 				&lt;ItemSizeDescription&gt; 					&lt;Data&gt; 						&lt;LocaleCode&gt;en_US&lt;/LocaleCode&gt; 						&lt;Value&gt;24 Tall&lt;/Value&gt; 					&lt;/Data&gt; 				&lt;/ItemSizeDescription&gt; 				&lt;ItemStyleDescription&gt; 					&lt;Data&gt; 						&lt;LocaleCode&gt;en_US&lt;/LocaleCode&gt; 						&lt;Value&gt;High Rise Flare Jeans&lt;/Value&gt; 					&lt;/Data&gt; 				&lt;/ItemStyleDescription&gt; 			&lt;/Product&gt; 			&lt;LinePriceInfo&gt; 				&lt;CurrentPrice&gt;48.99&lt;/CurrentPrice&gt; 				&lt;ListPrice&gt;69.95&lt;/ListPrice&gt; 				&lt;RetailPrice&gt;69.95&lt;/RetailPrice&gt; 				&lt;PriceType&gt;2&lt;/PriceType&gt; 				&lt;LineTax&gt; 					&lt;ChargeCategory&gt;Price&lt;/ChargeCategory&gt; 					&lt;ChargeName&gt;Price&lt;/ChargeName&gt; 					&lt;TaxName&gt;SalesTax&lt;/TaxName&gt; 					&lt;TaxPercentage&gt;7.50&lt;/TaxPercentage&gt; 					&lt;UnitTaxAmount&gt;3.67&lt;/UnitTaxAmount&gt; 					&lt;UnitTaxableAmount&gt;48.99&lt;/UnitTaxableAmount&gt; 				&lt;/LineTax&gt; 			&lt;/LinePriceInfo&gt; 		&lt;/Line&gt; 		&lt;HeaderPriceInfo&gt; 			&lt;HeaderCharge&gt; 				&lt;ChargeAmount&gt;7.0&lt;/ChargeAmount&gt; 				&lt;ChargeCategory&gt;ShipAndHandle&lt;/ChargeCategory&gt; 				&lt;ChargeName&gt;ShipAndHandle&lt;/ChargeName&gt; 			&lt;/HeaderCharge&gt; 			&lt;HeaderTax&gt; 				&lt;ChargeCategory&gt;ShipAndHandle&lt;/ChargeCategory&gt; 				&lt;ChargeName&gt;ShipAndHandle&lt;/ChargeName&gt; 				&lt;TaxName&gt;SalesTax&lt;/TaxName&gt; 				&lt;Tax&gt;0.53&lt;/Tax&gt; 				&lt;TaxPercentage&gt;0.00&lt;/TaxPercentage&gt; 				&lt;TaxableAmount&gt;7.00&lt;/TaxableAmount&gt; 				&lt;TaxAmountInLocalCurrency&gt;0.00&lt;/TaxAmountInLocalCurrency&gt; 			&lt;/HeaderTax&gt; 		&lt;/HeaderPriceInfo&gt; 		&lt;ShipmentPreference&gt; 			&lt;MaxDaysToDeliver&gt;5&lt;/MaxDaysToDeliver&gt; 			&lt;MinDaysToDeliver&gt;3&lt;/MinDaysToDeliver&gt; 			&lt;BusinessDayIndicator&gt;true&lt;/BusinessDayIndicator&gt; 			&lt;WithinCutoff&gt;-1&lt;/WithinCutoff&gt; 			&lt;ShipMethod&gt;1&lt;/ShipMethod&gt; 		&lt;/ShipmentPreference&gt; 		&lt;ShipTo&gt; 			&lt;PersonName&gt; 				&lt;FirstName&gt;Ajay&lt;/FirstName&gt; 				&lt;LastName&gt;Surya&lt;/LastName&gt; 			&lt;/PersonName&gt; 			&lt;Address&gt; 				&lt;AddressLine1&gt;6001 Green Pointe Dr S&lt;/AddressLine1&gt; 				&lt;CityName&gt;Groveport&lt;/CityName&gt; 				&lt;StateProvinceCode&gt;OH&lt;/StateProvinceCode&gt; 				&lt;StateProvinceName&gt;Ohio&lt;/StateProvinceName&gt; 				&lt;PostalCode&gt;43125-2008&lt;/PostalCode&gt; 				&lt;CountryCode&gt;US&lt;/CountryCode&gt; 				&lt;CountryName&gt;US&lt;/CountryName&gt; 				&lt;VerificationStatus&gt;SYSTEM_SAVED&lt;/VerificationStatus&gt; 			&lt;/Address&gt; 			&lt;PhoneNumber&gt;7093691494&lt;/PhoneNumber&gt; 			&lt;Email&gt;psurya@gap.com&lt;/Email&gt; 			&lt;ResidentialInd&gt;false&lt;/ResidentialInd&gt; 		&lt;/ShipTo&gt; 		&lt;BillTo&gt; 			&lt;PersonName&gt; 				&lt;FirstName&gt;Ajay&lt;/FirstName&gt; 				&lt;LastName&gt;Surya&lt;/LastName&gt; 			&lt;/PersonName&gt; 			&lt;Address&gt; 				&lt;AddressLine1&gt;6001 Green Pointe Dr S&lt;/AddressLine1&gt; 				&lt;CityName&gt;Groveport&lt;/CityName&gt; 				&lt;StateProvinceCode&gt;OH&lt;/StateProvinceCode&gt; 				&lt;StateProvinceName&gt;Ohio&lt;/StateProvinceName&gt; 				&lt;PostalCode&gt;43125-2008&lt;/PostalCode&gt; 				&lt;CountryCode&gt;US&lt;/CountryCode&gt; 				&lt;CountryName&gt;US&lt;/CountryName&gt; 				&lt;VerificationStatus&gt;SYSTEM_SAVED&lt;/VerificationStatus&gt; 			&lt;/Address&gt; 			&lt;PhoneNumber&gt;7093691494&lt;/PhoneNumber&gt; 			&lt;Email&gt;psurya@gap.com&lt;/Email&gt; 			&lt;ResidentialInd&gt;false&lt;/ResidentialInd&gt; 		&lt;/BillTo&gt; 		&lt;Payment&gt; 			&lt;GiftCardPayment&gt; 				&lt;GiftCard&gt; 					&lt;CardNumber&gt;A15F16FDCBF90EE9AA208A810D639B91&lt;/CardNumber&gt; 					&lt;Pin&gt;ED1793779187F852C4CCED6C917C1D87&lt;/Pin&gt; 					&lt;Brand&gt;GIFT_CARD&lt;/Brand&gt; 					&lt;Amount&gt;60.19&lt;/Amount&gt; 					&lt;DisplayCode&gt;8994&lt;/DisplayCode&gt; 					&lt;TenderType&gt;2&lt;/TenderType&gt; 					&lt;GiftCardAuthorization&gt; 						&lt;TransactionDate&gt;2021-05-04T15:55:32-0500&lt;/TransactionDate&gt; 						&lt;TransactionTime&gt;2021-05-04T15:55:32-0500&lt;/TransactionTime&gt; 						&lt;AuthorizationCode&gt;547195&lt;/AuthorizationCode&gt; 						&lt;ResponseCode&gt;AUTHORIZED&lt;/ResponseCode&gt; 						&lt;Status&gt;REDEEMED&lt;/Status&gt; 						&lt;PaymentTransactionGUID&gt;d058a68a-4849-4390-89c0-256dff3f2973&lt;/PaymentTransactionGUID&gt; 					&lt;/GiftCardAuthorization&gt; 				&lt;/GiftCard&gt; 			&lt;/GiftCardPayment&gt; 			&lt;Transactions&gt; 				&lt;Transaction&gt; 					&lt;Id&gt;d058a68a-4849-4390-89c0-256dff3f2973&lt;/Id&gt; 					&lt;Status&gt;REDEEMED&lt;/Status&gt; 				&lt;/Transaction&gt; 			&lt;/Transactions&gt; 		&lt;/Payment&gt; 	&lt;/Order&gt; &lt;/ns2:OrderCreateRequest&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="mq_distribution" elementType="Argument">
+                <stringProp name="Argument.name">mq_distribution</stringProp>
+                <stringProp name="Argument.value">${MQ_DISTRIBUTION}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">MQSend</stringProp>
+        </JavaSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings"/>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
